@@ -2,90 +2,57 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>لیگ مجازی پادشاهان</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
-
-*{
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
-    font-family:
-        Tahoma,
-        Arial,
-        sans-serif;
-
+    font-family:Tahoma,Arial,sans-serif;
     color:#fff;
-
     background:
-        linear-gradient(
-            rgba(3,10,16,.88),
-            rgba(3,10,16,.94)
-        ),
-        url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80")
-        center/cover fixed;
-
-    min-height:100vh;
+    linear-gradient(rgba(3,10,16,.88),rgba(3,10,16,.94)),
+    url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1600&q=80")
+    center/cover fixed;
 }
 
-button,
-input{
-    font-family:inherit;
-}
+button,input{font-family:inherit}
 
-header{
+.header{
     text-align:center;
-    padding:25px 12px 15px;
+    padding:25px 10px 15px;
 }
 
-header h1{
+.header h1{
     margin:0;
-    font-size:29px;
+    font-size:28px;
 }
 
-header p{
-    margin:8px 0 0;
-    color:#9baab4;
-    font-size:13px;
+.header p{
+    color:#9aaab4;
+    margin:8px 0;
 }
-
-
-/* =========================
-   NAV
-========================= */
 
 .nav{
-    width:100%;
     max-width:1200px;
     margin:auto;
-
+    padding:10px;
     display:flex;
     gap:8px;
-
-    padding:10px;
 }
 
 .nav button{
     flex:1;
-
     border:0;
     border-radius:12px;
-
-    padding:13px 7px;
-
+    padding:13px 5px;
     color:#fff;
-    background:#12222d;
-
+    background:#142631;
     font-weight:bold;
-    font-size:14px;
-
     cursor:pointer;
 }
 
@@ -93,19 +60,10 @@ header p{
     background:#e53935;
 }
 
-
-/* =========================
-   SECTIONS
-========================= */
-
 .section{
     display:none;
-
-    width:100%;
     max-width:1200px;
-
-    margin:10px auto 35px;
-
+    margin:auto;
     padding:10px;
 }
 
@@ -114,960 +72,588 @@ header p{
 }
 
 .card{
-    background:rgba(5,14,21,.96);
-
-    border:1px solid #263943;
-
+    background:rgba(5,14,21,.97);
+    border:1px solid #263b46;
     border-radius:18px;
-
-    padding:14px;
-
-    box-shadow:
-        0 12px 40px rgba(0,0,0,.4);
+    padding:15px;
 }
-
-
-/* =========================
-   TITLE
-========================= */
 
 .title{
     display:flex;
-
-    justify-content:space-between;
     align-items:center;
-
+    justify-content:space-between;
     gap:10px;
-
     margin-bottom:15px;
 }
 
 .title h2{
     margin:0;
-
     font-size:21px;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
-.download{
+.btn{
     border:0;
-
     border-radius:10px;
-
-    padding:10px 13px;
-
-    background:#1687d9;
-    color:#fff;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-.draw-btn{
-    border:0;
-
-    border-radius:11px;
-
     padding:11px 14px;
-
-    background:#20a85a;
     color:#fff;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
-.reset-btn{
-    border:0;
-
-    border-radius:11px;
-
-    padding:11px 14px;
-
-    background:#8e2525;
-    color:#fff;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
+.blue{background:#1687d9}
+.green{background:#20a85a}
+.red{background:#a52d2d}
 
 
-/* =========================
-   TABLE
-========================= */
+/* TABLE */
 
-.table-wrap{
+.table-scroll{
     overflow-x:auto;
-
-    border-radius:13px;
 }
 
-table{
+.league-table{
     width:100%;
-
-    min-width:1000px;
-
+    min-width:950px;
     border-collapse:collapse;
 }
 
-th{
+.league-table th{
     background:#142630;
-
     padding:14px 8px;
-
-    font-size:13px;
-
     white-space:nowrap;
 }
 
-td{
-    padding:10px 7px;
-
-    border-bottom:1px solid #203039;
-
+.league-table td{
+    padding:10px 8px;
     text-align:center;
-
+    border-bottom:1px solid #21323b;
     white-space:nowrap;
 }
 
-tr:hover td{
-    background:rgba(255,255,255,.025);
-}
-
-.team-cell{
+.team-name{
     display:flex;
-
     align-items:center;
-
     gap:9px;
-
-    justify-content:flex-start;
-
     font-weight:bold;
+    text-align:right;
 }
 
 .logo{
-    width:43px;
-    height:43px;
-
+    width:44px;
+    height:44px;
     object-fit:contain;
-
     background:#fff;
-
     border-radius:50%;
-
     padding:3px;
-
     flex:none;
 }
 
 .rank{
-    font-weight:bold;
-
     font-size:17px;
+    font-weight:bold;
 }
 
 .points{
     color:#ffd54f;
-
     font-size:17px;
-
     font-weight:bold;
 }
 
-.diff-plus{
-    color:#42df76;
-}
-
-.diff-minus{
-    color:#ff6262;
-}
+.plus{color:#41dd73}
+.minus{color:#ff6262}
 
 
-/* =========================
-   MANAGEMENT
-========================= */
+/* MANAGEMENT */
 
 .management{
     display:grid;
-
     gap:12px;
 }
 
-.manage-card{
-    background:#0b171f;
-
-    border:1px solid #273a45;
-
+.manage{
+    background:#0a171f;
+    border:1px solid #273b46;
     border-radius:15px;
-
     padding:12px;
 }
 
-.manage-head{
+.manage-top{
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     margin-bottom:12px;
 }
 
-.manage-head img{
+.manage-top img{
     width:45px;
     height:45px;
-
     object-fit:contain;
-
     background:#fff;
-
     border-radius:50%;
-
     padding:3px;
 }
 
-.manage-head strong{
+.manage-top b{
     font-size:16px;
 }
 
 .fields{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:8px;
 }
 
 .field label{
     display:block;
-
-    color:#9facb4;
-
+    color:#91a0a9;
     font-size:11px;
-
     margin-bottom:4px;
 }
 
 .field input{
     width:100%;
-
-    padding:9px 5px;
-
-    border-radius:8px;
-
-    border:1px solid #2b3e48;
-
     background:#071017;
-
     color:#fff;
-
+    border:1px solid #2c414c;
+    border-radius:8px;
+    padding:9px 5px;
     text-align:center;
-
-    outline:none;
+    outline:0;
 }
 
 .field input:focus{
     border-color:#e53935;
 }
 
-.logo-input{
+.url{
     direction:ltr;
-
-    text-align:left !important;
+    text-align:left!important;
 }
 
-.disabled-input{
-    opacity:.75;
-}
-
-.save{
+.save-all{
     width:100%;
-
     margin-top:15px;
-
-    padding:14px;
-
     border:0;
-
     border-radius:12px;
-
+    padding:14px;
     background:#20a85a;
-
     color:#fff;
-
     font-size:16px;
-
     font-weight:bold;
-
-    cursor:pointer;
 }
 
 
-/* =========================
-   CUP TOOLS
-========================= */
+/* CUP */
 
 .cup-tools{
     display:flex;
-
-    flex-wrap:wrap;
-
     gap:8px;
-
-    margin-bottom:15px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
 }
 
-.cup-info{
-    background:#101e27;
-
-    border:1px solid #253943;
-
-    border-radius:12px;
-
+.cup-note{
+    color:#9eabb5;
+    background:#0c1b24;
+    border:1px solid #263943;
     padding:11px;
-
-    color:#aebac1;
-
+    border-radius:11px;
     font-size:12px;
-
-    margin-bottom:15px;
+    line-height:1.9;
+    margin-bottom:14px;
 }
 
-
-/* =========================
-   BRACKET
-========================= */
-
-.cup-scroll{
+.bracket-scroll{
     overflow-x:auto;
-
-    padding-bottom:12px;
+    padding-bottom:10px;
 }
 
 .bracket{
-    min-width:1200px;
-
+    min-width:1150px;
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:15px;
-}
-
-.round{
-    display:flex;
-
-    flex-direction:column;
-
-    min-width:0;
 }
 
 .round-title{
     text-align:center;
-
     background:#142630;
-
-    border-radius:10px;
-
     padding:11px;
-
-    margin-bottom:12px;
-
+    border-radius:10px;
     font-weight:bold;
-
-    position:sticky;
-
-    top:0;
+    margin-bottom:12px;
 }
 
-.matches{
+.round-list{
     display:flex;
-
     flex-direction:column;
-
     justify-content:space-around;
-
     gap:12px;
-
-    flex:1;
+    min-height:600px;
 }
 
-.cup-match{
+.match{
     background:#09151d;
-
-    border:1px solid #293c47;
-
+    border:1px solid #293d48;
     border-radius:13px;
-
     padding:8px;
-
-    box-shadow:
-        0 5px 18px rgba(0,0,0,.25);
 }
 
 .cup-team{
     display:flex;
-
     align-items:center;
-
     gap:7px;
-
     min-height:48px;
-
     padding:6px;
-
     background:#12212a;
-
     border-radius:9px;
-
     margin-bottom:5px;
 }
 
 .cup-team img{
     width:32px;
     height:32px;
-
     object-fit:contain;
-
     background:#fff;
-
     border-radius:50%;
-
     padding:2px;
-
-    flex:none;
 }
 
-.cup-team-name{
+.cup-team span{
     flex:1;
-
-    font-size:12px;
-
+    font-size:11px;
     font-weight:bold;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
 }
 
 .advance{
     border:0;
-
-    border-radius:7px;
-
     background:#20a85a;
-
     color:#fff;
-
-    padding:7px 7px;
-
+    border-radius:7px;
+    padding:7px;
     font-size:10px;
-
     font-weight:bold;
-
-    cursor:pointer;
-}
-
-.advance:hover{
-    background:#28c568;
 }
 
 .waiting{
-    color:#6d7a82;
-
     text-align:center;
-
-    padding:15px 5px;
-
+    color:#687780;
+    padding:17px 5px;
     font-size:11px;
 }
 
 .vs{
     text-align:center;
-
     color:#66747c;
-
     font-size:10px;
-
     padding:2px;
 }
 
-
-/* =========================
-   CHAMPION
-========================= */
-
-.champion-box{
-    min-height:210px;
-
+.champion{
+    min-height:220px;
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     text-align:center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #2b2107,
-            #101820
-        );
-
+    background:linear-gradient(145deg,#2c2107,#101820);
     border:2px solid #c99b28;
-
     border-radius:18px;
-
-    padding:20px;
+    padding:15px;
 }
 
-.champion-box img{
+.champion img{
     width:75px;
     height:75px;
-
     object-fit:contain;
-
     background:#fff;
-
     border-radius:50%;
-
     padding:4px;
-
-    margin:8px 0;
+    margin:8px;
 }
 
-.champion-box h2{
+.champion h2{
     color:#ffd54f;
-
-    margin:4px 0;
-}
-
-.champion-box p{
-    color:#aaa;
-
-    margin:4px;
-}
-
-.trophy{
-    font-size:40px;
-}
-
-.no-champion{
-    color:#999;
-
-    text-align:center;
-
-    padding:45px 10px;
+    margin:5px;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:700px){
 
-    header h1{
+    .header h1{
         font-size:23px;
     }
 
     .nav button{
         font-size:11px;
-
-        padding:11px 4px;
     }
 
     .title{
         flex-direction:column;
-
         align-items:stretch;
     }
 
-    .download{
+    .fields{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .title .btn{
         width:100%;
     }
-
-    .cup-tools button{
-        flex:1;
-
-        min-width:140px;
-    }
-
-    .fields{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
 }
 
 
-/* =========================
-   IMAGE CAPTURE
-========================= */
+/* DOWNLOAD */
 
 .capture{
-    background:#061018 !important;
-
-    padding:20px !important;
+    background:#061018!important;
+    padding:20px!important;
 }
-
 </style>
 </head>
-
 
 <body>
 
 
-<header>
-
+<div class="header">
     <h1>🏆 لیگ مجازی پادشاهان</h1>
+    <p>لیگ فوتبال مجازی</p>
+</div>
 
-    <p>
-        لیگ فوتبال مجازی ایتا
-    </p>
-
-</header>
-
-
-<!-- =========================
-     NAVIGATION
-========================= -->
 
 <div class="nav">
 
-    <button
-        id="btnLeague"
-        class="active"
-        onclick="showSection('league')">
-
+    <button id="navLeague"
+            class="active"
+            onclick="showPage('league')">
         📊 جدول لیگ
-
     </button>
 
-
-    <button
-        id="btnCup"
-        onclick="showSection('cup')">
-
+    <button id="navCup"
+            onclick="showPage('cup')">
         🏆 جام حذفی
-
     </button>
 
-
-    <button
-        id="btnManage"
-        onclick="showSection('manage')">
-
+    <button id="navManage"
+            onclick="showPage('manage')">
         ⚙️ مدیریت
-
     </button>
 
 </div>
 
 
-
-<!-- =====================================================
+<!-- ================================
      LEAGUE
-===================================================== -->
+================================ -->
 
-<section
-    id="league"
-    class="section active">
+<section id="league" class="section active">
 
-    <div
-        class="card capture"
-        id="leagueCapture">
+<div class="card capture" id="leagueImage">
 
-        <div class="title">
+    <div class="title">
 
-            <h2>
-                📊 جدول لیگ مجازی
-            </h2>
+        <h2>📊 جدول لیگ مجازی</h2>
 
-
-            <button
-                class="download"
+        <button class="btn blue"
                 onclick="downloadLeague()">
-
-                📥 دانلود کل جدول
-
-            </button>
-
-        </div>
-
-
-        <div class="table-wrap">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>#</th>
-
-                        <th>تیم</th>
-
-                        <th>بازی</th>
-
-                        <th>برد</th>
-
-                        <th>مساوی</th>
-
-                        <th>باخت</th>
-
-                        <th>گل زده</th>
-
-                        <th>گل خورده</th>
-
-                        <th>تفاضل گل</th>
-
-                        <th>امتیاز</th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody id="leagueBody"></tbody>
-
-            </table>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CUP
-===================================================== -->
-
-<section
-    id="cup"
-    class="section">
-
-    <div
-        class="card capture"
-        id="cupCapture">
-
-        <div class="title">
-
-            <h2>
-                🏆 جام حذفی
-            </h2>
-
-        </div>
-
-
-        <div class="cup-tools">
-
-            <button
-                class="draw-btn"
-                onclick="randomDraw()">
-
-                🎲 قرعه‌کشی خودکار ۱۶ تیم
-
-            </button>
-
-
-            <button
-                class="download"
-                onclick="downloadCup()">
-
-                📥 دانلود جام
-
-            </button>
-
-
-            <button
-                class="reset-btn"
-                onclick="resetCup()">
-
-                🔄 قرعه‌کشی مجدد
-
-            </button>
-
-        </div>
-
-
-        <div class="cup-info">
-
-            🎲 با قرعه‌کشی خودکار، از بین ۱۹ تیم
-            <b>۱۶ تیم به‌صورت تصادفی</b> انتخاب می‌شوند
-            و هر تیم به یک حریف تصادفی می‌خورد.
-            سپس با انتخاب برنده، تیم به مرحله بعد می‌رود.
-
-        </div>
-
-
-        <div class="cup-scroll">
-
-            <div class="bracket">
-
-
-                <!-- R16 -->
-
-                <div class="round">
-
-                    <div class="round-title">
-
-                        یک‌هشتم نهایی
-
-                    </div>
-
-                    <div
-                        id="r16"
-                        class="matches">
-                    </div>
-
-                </div>
-
-
-                <!-- QF -->
-
-                <div class="round">
-
-                    <div class="round-title">
-
-                        یک‌چهارم نهایی
-
-                    </div>
-
-                    <div
-                        id="qf"
-                        class="matches">
-                    </div>
-
-                </div>
-
-
-                <!-- SF -->
-
-                <div class="round">
-
-                    <div class="round-title">
-
-                        نیمه‌نهایی
-
-                    </div>
-
-                    <div
-                        id="sf"
-                        class="matches">
-                    </div>
-
-                </div>
-
-
-                <!-- FINAL -->
-
-                <div class="round">
-
-                    <div class="round-title">
-
-                        فینال
-
-                    </div>
-
-                    <div
-                        id="final"
-                        class="matches">
-                    </div>
-
-                </div>
-
-
-                <!-- CHAMPION -->
-
-                <div class="round">
-
-                    <div class="round-title">
-
-                        🏆 قهرمان
-
-                    </div>
-
-                    <div
-                        id="champion"
-                        class="matches">
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     MANAGEMENT
-===================================================== -->
-
-<section
-    id="manage"
-    class="section">
-
-    <div class="card">
-
-        <div class="title">
-
-            <h2>
-                ⚙️ مدیریت تیم‌ها
-            </h2>
-
-        </div>
-
-
-        <p
-            style="
-            color:#9eabb5;
-            font-size:13px;
-            line-height:2;
-            ">
-
-            اطلاعات هر تیم را از همین قسمت تغییر بده.
-            امتیاز و تفاضل گل خودکار محاسبه می‌شوند.
-
-        </p>
-
-
-        <div
-            id="management"
-            class="management">
-        </div>
-
-
-        <button
-            class="save"
-            onclick="saveManagement()">
-
-            💾 ذخیره تمام تغییرات
-
+            📥 دانلود کل جدول
         </button>
 
     </div>
+
+
+    <div class="table-scroll">
+
+        <table class="league-table">
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>تیم</th>
+                    <th>بازی</th>
+                    <th>برد</th>
+                    <th>مساوی</th>
+                    <th>باخت</th>
+                    <th>گل زده</th>
+                    <th>گل خورده</th>
+                    <th>تفاضل</th>
+                    <th>امتیاز</th>
+                </tr>
+            </thead>
+
+            <tbody id="leagueBody"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     CUP
+================================ -->
+
+<section id="cup" class="section">
+
+<div class="card capture" id="cupImage">
+
+    <div class="title">
+
+        <h2>🏆 جام حذفی</h2>
+
+    </div>
+
+
+    <div class="cup-tools">
+
+        <button class="btn green"
+                onclick="newDraw()">
+            🎲 قرعه‌کشی خودکار
+        </button>
+
+        <button class="btn red"
+                onclick="resetCup()">
+            🔄 قرعه جدید
+        </button>
+
+        <button class="btn blue"
+                onclick="downloadCup()">
+            📥 دانلود جام
+        </button>
+
+    </div>
+
+
+    <div class="cup-note">
+
+        🎲 از بین ۱۹ تیم، ۱۶ تیم به‌صورت تصادفی انتخاب می‌شوند.
+        سپس خود سایت آن‌ها را جفت می‌کند.
+        برای هر بازی فقط روی <b>⬆️ صعود</b> تیم برنده بزن.
+        برنده خودش وارد مرحله بعد می‌شود.
+
+    </div>
+
+
+    <div class="bracket-scroll">
+
+        <div class="bracket">
+
+
+            <div>
+
+                <div class="round-title">
+                    یک‌هشتم نهایی
+                </div>
+
+                <div id="round16"
+                     class="round-list">
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="round-title">
+                    یک‌چهارم نهایی
+                </div>
+
+                <div id="quarter"
+                     class="round-list">
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="round-title">
+                    نیمه‌نهایی
+                </div>
+
+                <div id="semi"
+                     class="round-list">
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="round-title">
+                    فینال
+                </div>
+
+                <div id="final"
+                     class="round-list">
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="round-title">
+                    🏆 قهرمان
+                </div>
+
+                <div id="champion"
+                     class="round-list">
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================================
+     MANAGEMENT
+================================ -->
+
+<section id="manage" class="section">
+
+<div class="card">
+
+    <div class="title">
+
+        <h2>⚙️ مدیریت لیگ</h2>
+
+    </div>
+
+
+    <p style="color:#9aaab4;font-size:13px;line-height:2">
+
+        برای هر تیم دقیقاً این موارد را داری:
+        <b>نام، لوگو، بازی، برد، مساوی، باخت،
+        گل زده، گل خورده.</b>
+        تفاضل گل و امتیاز خودکار حساب می‌شوند.
+
+    </p>
+
+
+    <div id="management"
+         class="management">
+    </div>
+
+
+    <button class="save-all"
+            onclick="saveManagement()">
+        💾 ذخیره تمام تغییرات
+    </button>
+
+</div>
 
 </section>
 
@@ -1076,288 +662,197 @@ tr:hover td{
 <script>
 
 /* =====================================================
+   LOGO
+===================================================== */
+
+function commons(file){
+
+    return "https://commons.wikimedia.org/wiki/Special:Redirect/file/"
+        + encodeURIComponent(file);
+
+}
+
+
+/* =====================================================
    DEFAULT TEAMS
 ===================================================== */
 
-const defaultTeams = [
+const DEFAULT_TEAMS = [
 
-{
-    id:1,
-    name:"بارسلونا",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/FC_Barcelona_(crest).svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:2,
-    name:"رئال مادرید",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Real_Madrid_CF.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:3,
-    name:"منچستریونایتد",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Manchester_United_FC_crest.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:4,
-    name:"منچسترسیتی",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Manchester_City_FC_badge.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:5,
-    name:"لیورپول",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Liverpool_FC.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:6,
-    name:"آرسنال",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Arsenal_FC.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:7,
-    name:"چلسی",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Chelsea_FC.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:8,
-    name:"پاری سن ژرمن",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Paris_Saint-Germain_F.C..svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:9,
-    name:"مارسی",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Olympique_de_Marseille_logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:10,
-    name:"یوونتوس",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Juventus_FC_2017_logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:11,
-    name:"اینتر میلان",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Inter_Milan_2021_logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:12,
-    name:"پرسپولیس",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Persepolis_F.C._logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:13,
-    name:"استقلال",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Esteghlal_FC_logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:14,
-    name:"سپاهان",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Sepahan_F.C._logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:15,
-    name:"تراکتور",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tractor_S.C._logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:16,
-    name:"النصر",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Al-Nassr_FC_Logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:17,
-    name:"بنفيکا",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/SL_Benfica_logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:18,
-    name:"پورتو",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/FC_Porto.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-},
-
-{
-    id:19,
-    name:"اینتر میامی",
-    logo:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Inter_Miami_CF_logo.svg",
-    played:0,
-    wins:0,
-    draws:0,
-    losses:0,
-    for:0,
-    against:0
-}
+    {id:1,name:"بارسلونا",logo:commons("FC Barcelona (crest).svg")},
+    {id:2,name:"رئال مادرید",logo:commons("Real Madrid CF.svg")},
+    {id:3,name:"منچستریونایتد",logo:commons("Manchester United FC crest.svg")},
+    {id:4,name:"منچسترسیتی",logo:commons("Manchester City FC badge.svg")},
+    {id:5,name:"لیورپول",logo:commons("Liverpool FC.svg")},
+    {id:6,name:"آرسنال",logo:commons("Arsenal FC.svg")},
+    {id:7,name:"چلسی",logo:commons("Chelsea FC.svg")},
+    {id:8,name:"پاری سن ژرمن",logo:commons("Paris Saint-Germain F.C..svg")},
+    {id:9,name:"مارسی",logo:commons("Olympique de Marseille 2026 logo.svg")},
+    {id:10,name:"یوونتوس",logo:commons("Juventus FC - logo black (Italy, 2020).svg")},
+    {id:11,name:"اینتر میلان",logo:commons("FC Internazionale Milano 2021.svg")},
+    {id:12,name:"پرسپولیس",logo:commons("Persepolis old logo.svg")},
+    {id:13,name:"استقلال",logo:commons("Esteghlal Tehran FC logo.svg")},
+    {id:14,name:"سپاهان",logo:commons("Sepahan New Logo.svg")},
+    {id:15,name:"تراکتور",logo:commons("Tractor-logo.svg")},
+    {id:16,name:"النصر",logo:commons("Nassr FC Logo.svg")},
+    {id:17,name:"بنفیكا",logo:commons("Sport Lisboa e Benfica logo.svg")},
+    {id:18,name:"پورتو",logo:commons("FC Porto.svg")},
+    {id:19,name:"اینتر میامی",logo:commons("MLS crest logo RGB - Inter Miami CF.svg")}
 
 ];
 
 
 /* =====================================================
-   LOAD DATA
+   SAFE DATA
 ===================================================== */
 
-let teams =
-    JSON.parse(
-        localStorage.getItem("VKL_TEAMS")
-    ) || defaultTeams;
+function loadTeams(){
+
+    try{
+
+        const saved =
+            JSON.parse(
+                localStorage.getItem("VKL_TEAMS")
+            );
+
+        if(
+            Array.isArray(saved)
+            &&
+            saved.length === 19
+        ){
+
+            return DEFAULT_TEAMS.map(
+                (def,index)=>{
+
+                    const old = saved[index] || {};
+
+                    return {
+
+                        id:def.id,
+
+                        name:
+                            typeof old.name === "string"
+                            ? old.name
+                            : def.name,
+
+                        logo:
+                            typeof old.logo === "string"
+                            && old.logo.length > 5
+                            ? old.logo
+                            : def.logo,
+
+                        played:
+                            Number(old.played)||0,
+
+                        wins:
+                            Number(old.wins)||0,
+
+                        draws:
+                            Number(old.draws)||0,
+
+                        losses:
+                            Number(old.losses)||0,
+
+                        for:
+                            Number(old.for)||0,
+
+                        against:
+                            Number(old.against)||0
+
+                    };
+
+                }
+            );
+
+        }
+
+    }catch(e){
+
+        console.log("Old data ignored");
+
+    }
 
 
-let cup =
-    JSON.parse(
-        localStorage.getItem("VKL_CUP")
-    ) || null;
+    return DEFAULT_TEAMS.map(
+        team=>({
+
+            ...team,
+
+            played:0,
+            wins:0,
+            draws:0,
+            losses:0,
+            for:0,
+            against:0
+
+        })
+    );
+
+}
+
+
+let teams = loadTeams();
+
+
+let cup = null;
+
+try{
+
+    const oldCup =
+        JSON.parse(
+            localStorage.getItem("VKL_CUP")
+        );
+
+    if(
+        oldCup
+        &&
+        Array.isArray(oldCup.r16)
+        &&
+        oldCup.r16.length === 16
+    ){
+
+        cup = oldCup;
+
+    }
+
+}catch(e){
+
+    cup = null;
+
+}
 
 
 /* =====================================================
    HELPERS
 ===================================================== */
 
-function getTeam(id){
+function team(id){
 
     return teams.find(
-        team =>
-        Number(team.id) === Number(id)
+        t=>Number(t.id)===Number(id)
     );
 
 }
 
 
-function getPoints(team){
+function points(t){
 
     return (
-        Number(team.wins || 0) * 3
-    ) +
-    Number(team.draws || 0);
+        Number(t.wins||0)*3
+    )
+    +
+    Number(t.draws||0);
 
 }
 
 
-function getDiff(team){
+function diff(t){
 
     return (
-        Number(team.for || 0)
-    ) -
-    Number(team.against || 0);
+        Number(t.for||0)
+    )
+    -
+    Number(t.against||0);
 
 }
 
@@ -1373,44 +868,35 @@ function renderLeague(){
             "leagueBody"
         );
 
+
     const sorted =
         [...teams].sort(
             (a,b)=>{
 
                 if(
-                    getPoints(b)
-                    !==
-                    getPoints(a)
+                    points(a)!==
+                    points(b)
                 ){
 
-                    return (
-                        getPoints(b)
-                        -
-                        getPoints(a)
-                    );
+                    return points(b)-points(a);
 
                 }
 
 
                 if(
-                    getDiff(b)
-                    !==
-                    getDiff(a)
+                    diff(a)!==
+                    diff(b)
                 ){
 
-                    return (
-                        getDiff(b)
-                        -
-                        getDiff(a)
-                    );
+                    return diff(b)-diff(a);
 
                 }
 
 
                 return (
-                    Number(b.for || 0)
+                    Number(b.for||0)
                     -
-                    Number(a.for || 0)
+                    Number(a.for||0)
                 );
 
             }
@@ -1421,12 +907,201 @@ function renderLeague(){
 
 
     sorted.forEach(
-        (team,index)=>{
+        (t,i)=>{
 
-            const d =
-                getDiff(team);
+            const d = diff(t);
 
 
-            const diffClass =
-                d >= 0
-    
+            body.innerHTML += `
+
+                <tr>
+
+                    <td class="rank">
+                        ${i+1}
+                    </td>
+
+
+                    <td>
+
+                        <div class="team-name">
+
+                            <img
+                                class="logo"
+                                src="${t.logo}"
+                                alt="${t.name}"
+                                onerror="
+                                    this.style.display='none'
+                                "
+                            >
+
+                            <span>
+                                ${escapeHTML(t.name)}
+                            </span>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>${t.played}</td>
+
+                    <td>${t.wins}</td>
+
+                    <td>${t.draws}</td>
+
+                    <td>${t.losses}</td>
+
+                    <td>${t.for}</td>
+
+                    <td>${t.against}</td>
+
+
+                    <td
+                        class="${d>=0?'plus':'minus'}">
+
+                        ${d>0?"+":""}${d}
+
+                    </td>
+
+
+                    <td class="points">
+                        ${points(t)}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =====================================================
+   MANAGEMENT
+===================================================== */
+
+function renderManagement(){
+
+    const box =
+        document.getElementById(
+            "management"
+        );
+
+
+    box.innerHTML = "";
+
+
+    teams.forEach(
+        t=>{
+
+            box.innerHTML += `
+
+                <div class="manage">
+
+
+                    <div class="manage-top">
+
+                        <img
+                            src="${t.logo}"
+                            onerror="
+                                this.style.display='none'
+                            "
+                        >
+
+                        <b>
+                            ${escapeHTML(t.name)}
+                        </b>
+
+                    </div>
+
+
+                    <div class="fields">
+
+
+                        <div class="field">
+
+                            <label>
+                                نام تیم
+                            </label>
+
+                            <input
+                                id="name_${t.id}"
+                                value="${escapeHTML(t.name)}"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                لینک لوگو
+                            </label>
+
+                            <input
+                                class="url"
+                                id="logo_${t.id}"
+                                value="${escapeHTML(t.logo)}"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                بازی
+                            </label>
+
+                            <input
+                                type="number"
+                                min="0"
+                                id="played_${t.id}"
+                                value="${t.played}"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                برد
+                            </label>
+
+                            <input
+                                type="number"
+                                min="0"
+                                id="wins_${t.id}"
+                                value="${t.wins}"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label>
+                                مساوی
+                            </label>
+
+                            <input
+                             
